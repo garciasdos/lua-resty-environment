@@ -21,7 +21,7 @@ function M.validate_template(filePath)
 end
 
 function M.escapeString(str)
-    return str:gsub('\n', '\\n'):gsub('"', '\"')
+    return str:gsub('\n', '\\n'):gsub('"', '\\"')
 end
 
 function M.stringifyTemplate(filePath)

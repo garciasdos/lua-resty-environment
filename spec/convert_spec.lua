@@ -44,7 +44,7 @@ Hello world!
     describe("escapeString", function()
         it("escapes newline and double quotes", function()
             local input = 'Hello "world"\nNext line'
-            local expected = 'Hello \"world\"\\nNext line'
+            local expected = 'Hello \\"world\\"\\nNext line'
             assert.equals(expected, M.escapeString(input))
         end)
 
@@ -61,7 +61,7 @@ Hello world!
     describe("stringifyTemplate", function()
         it("reads and escapes a valid template file", function()
             local output = M.stringifyTemplate(validTplPath)
-            assert.equals('{% local name = "world" %} Hello, {{ name }}!', output)
+            assert.equals('{% local name = \\"world\\" %} Hello, {{ name }}!', output)
           end)
 
         it("throws an error if file not found", function()
