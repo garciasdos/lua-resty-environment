@@ -14,7 +14,7 @@ jobs:
       - name: Install Lua and LuaRocks
         run: |
           sudo apt-get update
-          sudo apt-get install luarocks
+          sudo apt-get install -y lua5.4 luarocks
 
       - name: Install Dependencies from rockspec
         run: luarocks make --local
