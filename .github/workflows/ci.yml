@@ -20,7 +20,7 @@ jobs:
         run: luarocks make --local
 
       - name: Add local bin to PATH
-        run: echo "::add-path::$HOME/.luarocks/bin"
+        run: echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
 
       - name: Run Tests
         run: busted spec
