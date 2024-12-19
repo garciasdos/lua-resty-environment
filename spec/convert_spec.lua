@@ -2,10 +2,7 @@
 
 local template = require "resty.template"
 
--- We'll assume you've refactored the functions into a module so that we can require them here.
--- If not, you could directly require "convert.lua" if it returns a module, 
--- or copy/paste function definitions into this file for testing.
-local M = dofile("tpl-module.lua") -- Adjust as needed if convert.lua doesn't return a module.
+local M = dofile("tpl-module.lua")
 
 describe("convert.lua", function()
     local function writeFile(path, content)
@@ -18,10 +15,8 @@ describe("convert.lua", function()
     local invalidTplPath = "test-fixtures/invalid_template.tpl"
 
     setup(function()
-        -- Create a valid template
         writeFile(validTplPath, [[{% local name = "world" %} Hello, {{ name }}!]])
 
-        -- Create an invalid template (e.g. missing a brace)
         writeFile(invalidTplPath, [[
 {% if true %}
 Hello world!
@@ -29,9 +24,7 @@ Hello world!
     end)
 
     teardown(function()
-        -- Clean up created files if needed
-        -- os.remove(validTplPath)
-        -- os.remove(invalidTplPath)
+        
     end)
 
     describe("validate_template", function()
