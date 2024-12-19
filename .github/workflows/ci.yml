@@ -14,10 +14,10 @@ jobs:
       - name: Install Lua and LuaRocks
         run: |
           sudo apt-get update
-          sudo apt-get install -y lua5.4 luarocks
+          sudo apt-get install luarocks
 
       - name: Install Dependencies from rockspec
-        run: luarocks make
+        run: luarocks make --local
 
       - name: Run Tests
         run: busted spec
