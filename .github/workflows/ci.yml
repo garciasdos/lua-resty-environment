@@ -11,12 +11,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Lua and LuaRocks
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y lua5.4 liblua5.4-dev luarocks
+      - name: Set up Lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: '5.4'
 
-      - name: Install Dependencies from rockspec
+
+      - name: Install dependencies
+        run: luarocks install --local
+    
+      - name: Build
         run: luarocks make --local
 
       - name: Run Tests
