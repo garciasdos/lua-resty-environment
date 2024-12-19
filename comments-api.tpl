@@ -19,7 +19,6 @@
 "status": 404,
 "detail": "{{body.error.message}}"
 }
-}
 {% elseif status == 500 then %}
 {
 "type": "https://api.postman.com/problems/internal-server-error",
@@ -40,7 +39,7 @@
 {% else %}
 {
 "data": [
-{% for i, comment in ipairs(body.comments) do %}
+{% for i, comment in ipais(body.comments) do %}
 {
 "id": {{comment.id}},
 "createdBy": {{comment.createdBy}},
