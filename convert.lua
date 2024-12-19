@@ -1,5 +1,5 @@
 local lfs = require "lfs"
-local M = require "tpl_module"  -- our module with core logic
+local M = require "tpl-module"  -- our module with core logic
 
 local tplFiles = {}
 for file in lfs.dir(".") do
