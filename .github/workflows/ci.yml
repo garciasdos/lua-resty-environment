@@ -11,17 +11,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Lua
-        uses: leafo/gh-actions-lua@v10
-        with:
-          luaVersion: '5.4'
+      - name: Install Lua and LuaRocks
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua5.4 liblua5.4-dev luarocks
 
-
-      - name: Install dependencies
-        run: luarocks install --local
-    
-      - name: Build
+      - name: Install Dependencies from rockspec
         run: luarocks make --local
+
+      - name: Add local bin to PATH
+        run: echo "::add-path::$HOME/.luarocks/bin"
 
       - name: Run Tests
         run: busted spec

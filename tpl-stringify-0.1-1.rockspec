@@ -17,7 +17,7 @@ a stringified version of the file.
 }
 
 dependencies = {
-   "lua >= 5.4",
+   "lua >= 5.1",
    "lua-resty-template",
    "luafilesystem",
    "busted"
